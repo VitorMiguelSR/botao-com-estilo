@@ -24,8 +24,7 @@ body{
     position: relative;
     transition: all 0.3s;
 }
-
-button::after{
+.button::after{
     pointer-events: none;
     content: "";
     position: absolute;
@@ -36,16 +35,29 @@ button::after{
     background-color: var(--glow-spread-color);
     filter: blur(2em);
     opacity: .7;
-    transform: perspective(1.5em) rotateX(1.5deg) scale(1, .6);
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
-
-button::before{
+button::before {
+    content: "";
+    position: absolute;
+    top: 80%;
+    left: 0;
+    height: 100%;
     width: 100%;
     background-color: var(--glow-spread-color);
     filter: blur(1.5em);
     opacity: .7;
-    transform: perspective(1.5em) rotateX(35deg) scale(1, 6);
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
 button:hover{
     color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em 0.25em var(--glow-color),
+                0 0 0.75em 0.25em var(--glow-spread-color),
+                inset 0 0 0.75em var(--glow-color);
+}
+button:active{
+    box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+                0 0 0.3em 0.25em var(--glow-spread-color),
+                inset 0 0 5em 0 var(--glow-color);
 }
